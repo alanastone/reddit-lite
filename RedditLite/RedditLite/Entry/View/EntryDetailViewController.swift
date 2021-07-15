@@ -34,7 +34,7 @@ class EntryDetailViewController: BaseViewController {
         self.titleLabel.text = self.viewModel?.entry.title
         self.commentsLabel.text = self.viewModel?.formattedNumComments
         let imageUrl = self.viewModel?.fullImageUrl ?? self.viewModel?.entry.thumbnail ?? ""
-        self.entryImageView.load(urlString: imageUrl, placeholder: UIImage(named: "icImagePlaceholder"))
+        self.entryImageView.load(urlString: imageUrl, placeholder: UIImage(named: "imgPlaceholder"))
         
         let iconCommentImage = self.commentsIcon?.image?.withRenderingMode(.alwaysTemplate)
         self.commentsIcon.tintColor = UIColor.systemPink

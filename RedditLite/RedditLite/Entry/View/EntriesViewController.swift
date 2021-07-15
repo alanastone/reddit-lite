@@ -12,6 +12,7 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
     // MARK: - Outlets
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     
@@ -23,6 +24,8 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showLoading()
+        
         self.refreshControl.tintColor = UIColor.systemYellow
         self.refreshControl.addTarget(self, action: #selector(refreshList(_:)), for: .valueChanged)
         
@@ -31,8 +34,22 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
         self.tableView.addSubview(self.refreshControl)
         
         self.viewModel.load { [weak self] in
+            self?.hideLoading()
             self?.tableView.reloadData()
         }
+    }
+    
+    // MARK: - Setup views
+    
+    func showLoading() {
+        self.loadingIndicator.isHidden = false
+        self.loadingIndicator.startAnimating()
+        self.tableView.isHidden = true
+    }
+    
+    func hideLoading() {
+        self.loadingIndicator.isHidden = true
+        self.tableView.isHidden = false
     }
     
     // MARK: - UITableViewDataSource
