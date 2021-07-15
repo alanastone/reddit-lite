@@ -69,36 +69,36 @@
                                                             <rect key="frame" x="108" y="0.0" width="290" height="292"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="puj-aJ-gUk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="16"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ZA-4nG">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                                             <color key="backgroundColor" systemColor="systemTealColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="width" constant="18" id="B0k-nj-uz3"/>
-                                                                                <constraint firstAttribute="height" constant="18" id="qe7-uv-aCj"/>
+                                                                                <constraint firstAttribute="width" constant="16" id="B0k-nj-uz3"/>
+                                                                                <constraint firstAttribute="height" constant="16" id="qe7-uv-aCj"/>
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                    <integer key="value" value="9"/>
+                                                                                    <integer key="value" value="8"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-rR-aqg">
-                                                                            <rect key="frame" x="24" y="0.0" width="266" height="18"/>
+                                                                            <rect key="frame" x="22" y="0.0" width="268" height="16"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="· minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOa-xt-caJ">
-                                                                    <rect key="frame" x="0.0" y="22" width="290" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="20" width="290" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBH-V4-Bvt">
-                                                                    <rect key="frame" x="0.0" y="42" width="290" height="226"/>
+                                                                    <rect key="frame" x="0.0" y="40" width="290" height="228"/>
                                                                     <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
@@ -107,6 +107,17 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOg-9I-lUy">
                                                                     <rect key="frame" x="0.0" y="272" width="290" height="20"/>
                                                                     <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zh8-e6-kdw">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="64.5" height="20"/>
+                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                            <color key="tintColor" systemColor="systemRedColor"/>
+                                                                            <state key="normal" title="Dimiss" image="delete.left" catalog="system">
+                                                                                <color key="titleColor" systemColor="systemRedColor"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="dimissEntry:" destination="sBc-bg-8NK" eventType="touchUpInside" id="WP4-dg-4tD"/>
+                                                                            </connections>
+                                                                        </button>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icComments" translatesAutoresizingMaskIntoConstraints="NO" id="6m9-SH-1xj">
                                                                             <rect key="frame" x="265" y="0.0" width="25" height="20"/>
                                                                             <color key="tintColor" systemColor="systemPinkColor"/>
@@ -115,8 +126,8 @@
                                                                                 <constraint firstAttribute="height" constant="20" id="xtk-ll-8Oc"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="comments" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y1-0d-c3K">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="263" height="20"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="comments" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y1-0d-c3K">
+                                                                            <rect key="frame" x="195" y="0.0" width="68" height="20"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -124,13 +135,18 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="trailing" secondItem="6m9-SH-1xj" secondAttribute="trailing" id="8Vj-fE-xYJ"/>
                                                                         <constraint firstItem="6m9-SH-1xj" firstAttribute="top" secondItem="iOg-9I-lUy" secondAttribute="top" id="9Ym-4M-0Qc"/>
+                                                                        <constraint firstItem="Zh8-e6-kdw" firstAttribute="leading" secondItem="iOg-9I-lUy" secondAttribute="leading" id="FLe-ND-cf1"/>
                                                                         <constraint firstAttribute="bottom" secondItem="6m9-SH-1xj" secondAttribute="bottom" id="G50-je-IZt"/>
                                                                         <constraint firstAttribute="bottom" secondItem="2Y1-0d-c3K" secondAttribute="bottom" id="Jtn-qG-tGg"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Zh8-e6-kdw" secondAttribute="bottom" id="KcF-a7-olX"/>
                                                                         <constraint firstItem="6m9-SH-1xj" firstAttribute="leading" secondItem="2Y1-0d-c3K" secondAttribute="trailing" constant="2" id="Su6-oV-hQK"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="6m9-SH-1xj" secondAttribute="trailing" id="Thu-dg-XEO"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="Zh8-e6-kdw" secondAttribute="bottom" id="XTp-dm-WSP"/>
+                                                                        <constraint firstItem="Zh8-e6-kdw" firstAttribute="top" secondItem="iOg-9I-lUy" secondAttribute="top" id="XXi-Uq-A4a"/>
+                                                                        <constraint firstItem="2Y1-0d-c3K" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zh8-e6-kdw" secondAttribute="trailing" constant="4" id="Y9y-Wo-U6D"/>
+                                                                        <constraint firstItem="Zh8-e6-kdw" firstAttribute="top" secondItem="iOg-9I-lUy" secondAttribute="top" id="bYA-yQ-VLG"/>
                                                                         <constraint firstItem="2Y1-0d-c3K" firstAttribute="top" secondItem="iOg-9I-lUy" secondAttribute="top" id="gVg-sT-ezW"/>
-                                                                        <constraint firstItem="2Y1-0d-c3K" firstAttribute="leading" secondItem="iOg-9I-lUy" secondAttribute="leading" id="hVf-O2-ZsO"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -181,7 +197,13 @@
                             <constraint firstItem="eJf-9t-rjC" firstAttribute="trailing" secondItem="c6i-UL-UeA" secondAttribute="trailing" id="tuH-ly-1kr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ldK-4f-1IY"/>
+                    <navigationItem key="navigationItem" id="ldK-4f-1IY">
+                        <barButtonItem key="rightBarButtonItem" title="Restore" id="RdR-ZJ-FgK">
+                            <connections>
+                                <action selector="restoreItems:" destination="Y6W-OH-hqX" id="bsL-tV-iby"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="loadingIndicator" destination="cUo-S3-MfE" id="ZKR-AL-aay"/>
                         <outlet property="tableView" destination="c6i-UL-UeA" id="5zV-mN-6Dy"/>
@@ -396,6 +418,7 @@
         <segue reference="4sw-NC-UyV"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="delete.left" catalog="system" width="128" height="104"/>
         <image name="icComments" width="24" height="24"/>
         <image name="imgLauncher" width="270" height="224"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
@@ -408,6 +431,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

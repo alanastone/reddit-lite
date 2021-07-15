@@ -18,10 +18,24 @@ class EntriesViewModel {
         EntryService().getEntries(self.after, handler: ServiceHandler(success: {
             response in
             self.after = response?.after
-            self.entries.insert(contentsOf: response?.childrenEntries ?? [], at: 0)
+            
+            // Don_t show dismissed entries
+            let filteredEntries = response?.childrenEntries?.filter { !EntryStorage.isDismissed(entry: $0) } ?? []
+            self.entries.insert(contentsOf: filteredEntries, at: 0)
+            
             DispatchQueue.main.async {
                 done?()
             }
         }, error: nil))
+    }
+    
+    func remove(entry: Entry) {
+        EntryStorage.dismiss(entry: entry)
+        self.entries.removeAll(where: { $0.id == entry.id })
+    }
+    
+    func restoreItems(_ done: (()->Void)? = nil) {
+        EntryStorage.restoreDismissed()
+        self.load(done)
     }
 }

@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
+        // Scene setup to SplitViewController
         guard
           let splitViewController = window?.rootViewController as? UISplitViewController,
           let leftNavController = splitViewController.viewControllers.first
@@ -29,7 +30,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           let detailViewController = rightNavController.viewControllers.first
             as? EntryDetailViewController
           else { fatalError() }
-
         masterViewController.detailDelegate = detailViewController
     }
 

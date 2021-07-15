@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntriesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, ExpandImageDelegate {
+class EntriesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, EntryCellDelegate {
     
     // MARK: - Outlets
     
@@ -27,6 +27,7 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
         
         self.showLoading()
         
+        // Customization of Pull to Refresh
         self.refreshControl.tintColor = UIColor.systemYellow
         self.refreshControl.addTarget(self, action: #selector(refreshList(_:)), for: .valueChanged)
         
@@ -34,6 +35,7 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
         self.tableView.delegate = self
         self.tableView.addSubview(self.refreshControl)
         
+        // Fetch items from view model
         self.viewModel.load { [weak self] in
             self?.hideLoading()
             self?.tableView.reloadData()
@@ -71,25 +73,35 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entry = self.viewModel.entries[indexPath.row]
+        // Communicates to DetailViewController to show the information from selected entry
         self.detailDelegate?.onSelect(entry: entry)
+        // In order to work on iPhone devices the showDetail must be called manually
         if let viewController = self.detailDelegate as? UIViewController {
             self.splitViewController?.showDetailViewController(viewController, sender: self)
         }
+        // Reload item to update status read/unread
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        // Keep the row selected after reload
+        self.tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
     }
-    
-    // MARK: - Prepare for segue
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewModel = sender as? EntryDetailViewModel, let detailViewController = segue.destination as? EntryDetailViewController {
-            detailViewController.viewModel = viewModel
-        }
-    }
-    
-    // MARK: - ExpandImageDelegate
+
+    // MARK: - EntryCellDelegate
     
     func expandImage(for entry: Entry) {
         EntryImageViewController.present(entry: entry, in: self)
+    }
+    
+    func dismiss(entry: Entry) {
+        if let index = self.viewModel.entries.firstIndex(where: { $0.id == entry.id}) {
+            // Setup detail view controller if needed
+            self.detailDelegate?.onRemove(entry: entry)
+            // Remove from view model's list
+            self.viewModel.remove(entry: entry)
+            // Updates table with animation
+            self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .left)
+            self.tableView.endUpdates()
+        }
     }
     
     // MARK: - Actions
@@ -97,6 +109,12 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
     @objc private func refreshList(_ sender: Any) {
         self.viewModel.load { [weak self] in
             self?.refreshControl.endRefreshing()
+            self?.tableView.reloadData()
+        }
+    }
+    
+    @IBAction func restoreItems(_ sender: Any) {
+        self.viewModel.restoreItems { [weak self] in
             self?.tableView.reloadData()
         }
     }

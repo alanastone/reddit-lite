@@ -22,7 +22,7 @@ class RedditLiteTests: XCTestCase {
         let expectation = self.expectation(description: "getEntries")
         var testResult: EntryResponseData? = nil
         
-        EntryService().getEntries(ServiceHandler(success: { response in
+        EntryService().getEntries(handler: ServiceHandler(success: { response in
             testResult = response
             expectation.fulfill()
         }, error: { error in

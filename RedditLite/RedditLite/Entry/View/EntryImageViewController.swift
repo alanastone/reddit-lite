@@ -35,6 +35,7 @@ class EntryImageViewController: BaseViewController {
     @IBAction func performShare(_ sender: Any) {
         if let image = self.imageView.image {
             let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            controller.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
             self.present(controller, animated: true)
         }
     }

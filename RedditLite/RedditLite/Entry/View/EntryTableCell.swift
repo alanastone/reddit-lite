@@ -13,7 +13,7 @@ class EntryTableCell: UITableViewCell {
     
     static let identifier = "EntryTableCell"
     var entry: Entry? = nil
-    var delegate: ExpandImageDelegate? = nil
+    var delegate: EntryCellDelegate? = nil
     
     // MARK: - Outlets
     
@@ -61,8 +61,15 @@ class EntryTableCell: UITableViewCell {
         }
     }
     
+    @IBAction func dimissEntry(_ sender: UIButton) {
+        if let entry = self.entry {
+            delegate?.dismiss(entry: entry)
+        }
+    }
+    
 }
 
-protocol ExpandImageDelegate {
+protocol EntryCellDelegate {
     func expandImage(for entry: Entry)
+    func dismiss(entry: Entry)
 }
