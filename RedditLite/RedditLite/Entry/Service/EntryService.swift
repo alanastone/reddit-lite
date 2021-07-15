@@ -9,8 +9,12 @@ import Foundation
 
 class EntryService: BaseService {
     
-    func getEntries(_ handler: ServiceHandler<EntryResponseData>) {
-        let serviceUrl = "/top/.json"
+    func getEntries(_ after: String? = nil, handler: ServiceHandler<EntryResponseData>) {
+        var serviceUrl = "/top/.json"
+        
+        if let after = after {
+            serviceUrl += "?after=\(after)"
+        }
         
         let serviceHandler = ServiceHandler<EntryResponse>(success: { response in
             handler.success?(response?.data)

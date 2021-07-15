@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class EntryDetailViewModel {
+    
+    var entry: Entry
+    
+    init(entry: Entry) {
+        self.entry = entry
+    }
+}

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0300C892269E9D7100176DBB /* EntryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0300C891269E9D7100176DBB /* EntryTableCell.swift */; };
+		0300C895269E9E9400176DBB /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0300C894269E9E9400176DBB /* UIImageViewExtension.swift */; };
+		0300C897269EA53700176DBB /* EntryImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0300C896269EA53700176DBB /* EntryImageViewController.swift */; };
 		03935A78269D206C00B73A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03935A77269D206C00B73A03 /* AppDelegate.swift */; };
 		03935A7A269D206C00B73A03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03935A79269D206C00B73A03 /* SceneDelegate.swift */; };
 		03935A7C269D206C00B73A03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03935A7B269D206C00B73A03 /* ViewController.swift */; };
@@ -15,6 +18,7 @@
 		03935A8F269D206F00B73A03 /* RedditLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03935A8E269D206F00B73A03 /* RedditLiteTests.swift */; };
 		03935A9A269D206F00B73A03 /* RedditLiteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03935A99269D206F00B73A03 /* RedditLiteUITests.swift */; };
 		03935AAD269D21C500B73A03 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03935AAC269D21C500B73A03 /* Entry.swift */; };
+		03A91518269FB02500AC4E7D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A91517269FB02500AC4E7D /* BaseViewController.swift */; };
 		03E900B7269E5F6900D256C2 /* EntriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E900B6269E5F6900D256C2 /* EntriesViewController.swift */; };
 		03E900B9269E5F8400D256C2 /* Entry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03E900B8269E5F8400D256C2 /* Entry.storyboard */; };
 		03E900BB269E615B00D256C2 /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E900BA269E615B00D256C2 /* ApiConfig.swift */; };
@@ -44,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0300C891269E9D7100176DBB /* EntryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableCell.swift; sourceTree = "<group>"; };
+		0300C894269E9E9400176DBB /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		0300C896269EA53700176DBB /* EntryImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryImageViewController.swift; sourceTree = "<group>"; };
 		03935A74269D206C00B73A03 /* RedditLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03935A77269D206C00B73A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03935A79269D206C00B73A03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +65,7 @@
 		03935A99269D206F00B73A03 /* RedditLiteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditLiteUITests.swift; sourceTree = "<group>"; };
 		03935A9B269D206F00B73A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03935AAC269D21C500B73A03 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		03A91517269FB02500AC4E7D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		03E900B6269E5F6900D256C2 /* EntriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewController.swift; sourceTree = "<group>"; };
 		03E900B8269E5F8400D256C2 /* Entry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Entry.storyboard; sourceTree = "<group>"; };
 		03E900BA269E615B00D256C2 /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
@@ -94,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0300C893269E9E8A00176DBB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0300C894269E9E9400176DBB /* UIImageViewExtension.swift */,
+				03A91517269FB02500AC4E7D /* BaseViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		03935A6B269D206C00B73A03 = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +198,9 @@
 			isa = PBXGroup;
 			children = (
 				03E900B6269E5F6900D256C2 /* EntriesViewController.swift */,
+				0300C891269E9D7100176DBB /* EntryTableCell.swift */,
 				03E900B8269E5F8400D256C2 /* Entry.storyboard */,
+				0300C896269EA53700176DBB /* EntryImageViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +216,7 @@
 		03E900C6269E64CC00D256C2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0300C893269E9E8A00176DBB /* View */,
 				03E900C7269E64E100D256C2 /* Service */,
 			);
 			path = Base;
@@ -348,9 +368,13 @@
 				03935A7C269D206C00B73A03 /* ViewController.swift in Sources */,
 				03E900BB269E615B00D256C2 /* ApiConfig.swift in Sources */,
 				03935A78269D206C00B73A03 /* AppDelegate.swift in Sources */,
+				0300C892269E9D7100176DBB /* EntryTableCell.swift in Sources */,
+				0300C895269E9E9400176DBB /* UIImageViewExtension.swift in Sources */,
+				0300C897269EA53700176DBB /* EntryImageViewController.swift in Sources */,
 				03E900B7269E5F6900D256C2 /* EntriesViewController.swift in Sources */,
 				03E900CD269E8ADF00D256C2 /* BaseService.swift in Sources */,
 				03E900CB269E89BE00D256C2 /* EntryResponse.swift in Sources */,
+				03A91518269FB02500AC4E7D /* BaseViewController.swift in Sources */,
 				03E900BF269E61CF00D256C2 /* EntryDetailViewModel.swift in Sources */,
 				03935A7A269D206C00B73A03 /* SceneDelegate.swift in Sources */,
 			);

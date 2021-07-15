@@ -11,10 +11,11 @@ struct Entry: Decodable {
     let title: String?
     let author: String?
     let thumbnail: String?
-    let created: Int?
+    let fullImage: String?
+    let created: Double?
     let numComments: Int?
     
     private enum CodingKeys : String, CodingKey {
-        case title, author, thumbnail, created, numComments = "num_comments"
+        case title, author, thumbnail, created, numComments = "num_comments", fullImage = "url_overridden_by_dest"
     }
 }

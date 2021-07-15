@@ -15,6 +15,11 @@ struct EntryResponseData: Decodable {
     let after: String?
     let before: String?
     let children: [EntryData]?
+    var childrenEntries: [Entry]? {
+        get {
+            return children?.compactMap { return $0.data }
+        }
+    }
 }
 
 struct EntryData: Decodable {
