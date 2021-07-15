@@ -8,6 +8,7 @@
 import Foundation
 
 struct Entry: Decodable {
+    let id: String?
     let title: String?
     let author: String?
     let thumbnail: String?
@@ -16,6 +17,6 @@ struct Entry: Decodable {
     let numComments: Int?
     
     private enum CodingKeys : String, CodingKey {
-        case title, author, thumbnail, created, numComments = "num_comments", fullImage = "url_overridden_by_dest"
+        case title, author, thumbnail, created, numComments = "num_comments", fullImage = "url_overridden_by_dest", id = "name"
     }
 }

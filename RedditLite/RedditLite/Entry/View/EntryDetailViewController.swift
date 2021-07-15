@@ -7,8 +7,8 @@
 
 import UIKit
 
-class EntryDetailViewController: BaseViewController {
-    
+class EntryDetailViewController: BaseViewController, EntryDetailDelegate {
+
     // MARK: - Outlets
     
     @IBOutlet weak var entryImageView: UIImageView!
@@ -17,6 +17,9 @@ class EntryDetailViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var commentsIcon: UIImageView!
+    
+    @IBOutlet weak var emptyView: UIImageView!
+    @IBOutlet weak var stackView: UIStackView!
     
     // MARK: - Properties
     
@@ -27,19 +30,44 @@ class EntryDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.authorLabel.text = viewModel?.entry.author
-        
-        self.createDateLabel.text = self.viewModel?.formattedTimeElapsed
-
-        self.titleLabel.text = self.viewModel?.entry.title
-        self.commentsLabel.text = self.viewModel?.formattedNumComments
-        let imageUrl = self.viewModel?.fullImageUrl ?? self.viewModel?.entry.thumbnail ?? ""
-        self.entryImageView.load(urlString: imageUrl, placeholder: UIImage(named: "imgPlaceholder"))
-        
-        let iconCommentImage = self.commentsIcon?.image?.withRenderingMode(.alwaysTemplate)
-        self.commentsIcon.tintColor = UIColor.systemPink
-        self.commentsIcon.image = iconCommentImage
+        self.emptyView.isHidden = false
+        self.stackView.isHidden = true
+        self.bindViewModel()
         
     }
+    
+    // MARK: - Setup views
+    
+    func bindViewModel() {
+        if let viewModel = self.viewModel {
+            self.authorLabel.text = viewModel.entry.author
+            
+            self.createDateLabel.text = viewModel.formattedTimeElapsed
+
+            self.titleLabel.text = viewModel.entry.title
+            self.commentsLabel.text = viewModel.formattedNumComments
+            let imageUrl = viewModel.fullImageUrl ?? viewModel.entry.thumbnail ?? ""
+            self.entryImageView.load(urlString: imageUrl, placeholder: UIImage(named: "icImagePlaceholder"))
+            
+            let iconCommentImage = self.commentsIcon?.image?.withRenderingMode(.alwaysTemplate)
+            self.commentsIcon.tintColor = UIColor.systemPink
+            self.commentsIcon.image = iconCommentImage
+            
+            self.emptyView.isHidden = true
+            self.stackView.isHidden = false
+        }
+    }
+    
+    // MARK: - EntryDetailDelegate
+    
+    func onSelect(entry: Entry) {
+        self.viewModel = EntryDetailViewModel(entry: entry)
+        self.viewModel?.readEntry()
+        self.bindViewModel()
+    }
         
+}
+
+protocol EntryDetailDelegate {
+    func onSelect(entry: Entry)
 }

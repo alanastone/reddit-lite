@@ -18,6 +18,7 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
     
     private var viewModel = EntriesViewModel()
     private let refreshControl = UIRefreshControl()
+    var detailDelegate: EntryDetailDelegate? = nil
     
     // MARK: - Lifecycle
     
@@ -70,9 +71,11 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let entry = self.viewModel.entries[indexPath.row]
-        let detailViewModel = EntryDetailViewModel(entry: entry)
-        self.performSegue(withIdentifier: "EntryDetailsSegue", sender: detailViewModel)
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        self.detailDelegate?.onSelect(entry: entry)
+        if let viewController = self.detailDelegate as? UIViewController {
+            self.splitViewController?.showDetailViewController(viewController, sender: self)
+        }
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     // MARK: - Prepare for segue

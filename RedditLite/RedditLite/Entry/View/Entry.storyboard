@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pmt-mi-6eu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9iW-sQ-Vph">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -23,7 +23,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6O2-R2-J95" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-774" y="153"/>
+            <point key="canvasLocation" x="-1328" y="552"/>
         </scene>
         <!--Reddit Posts-->
         <scene sceneID="s0d-6b-0kx">
@@ -68,19 +68,37 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1ey-30-bHT">
                                                             <rect key="frame" x="108" y="0.0" width="290" height="292"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-rR-aqg">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="puj-aJ-gUk">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="290" height="18"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-ZA-4nG">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                                                            <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="18" id="B0k-nj-uz3"/>
+                                                                                <constraint firstAttribute="height" constant="18" id="qe7-uv-aCj"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                    <integer key="value" value="9"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </view>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-rR-aqg">
+                                                                            <rect key="frame" x="24" y="0.0" width="266" height="18"/>
+                                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                </stackView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="· minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOa-xt-caJ">
-                                                                    <rect key="frame" x="0.0" y="23.5" width="290" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="22" width="290" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBH-V4-Bvt">
-                                                                    <rect key="frame" x="0.0" y="43.5" width="290" height="224.5"/>
+                                                                    <rect key="frame" x="0.0" y="42" width="290" height="226"/>
                                                                     <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</string>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
@@ -145,6 +163,7 @@
                                             <outlet property="commentsLabel" destination="2Y1-0d-c3K" id="8Ba-4U-Z4S"/>
                                             <outlet property="createDateLabel" destination="AOa-xt-caJ" id="NAZ-VW-peD"/>
                                             <outlet property="entryImageView" destination="b2h-ax-f2H" id="vf7-M5-RR8"/>
+                                            <outlet property="statusStackView" destination="puj-aJ-gUk" id="RXJ-L0-EpK"/>
                                             <outlet property="titleLabel" destination="MBH-V4-Bvt" id="4Jm-tc-xlA"/>
                                         </connections>
                                     </tableViewCell>
@@ -170,7 +189,20 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="21.739130434782609" y="152.67857142857142"/>
+            <point key="canvasLocation" x="-255.07246376811597" y="551.11607142857144"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="9f3-f2-u0M">
+            <objects>
+                <splitViewController allowDoubleColumnStyle="YES" id="9iW-sQ-Vph" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="Pmt-mi-6eu" kind="relationship" relationship="masterViewController" id="A0a-Rd-Y6a"/>
+                        <segue destination="9CH-6T-RK3" kind="relationship" relationship="detailViewController" id="2Aq-od-d0m"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sB7-SV-mmW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2442" y="976"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Xw-Gt-kR0">
@@ -186,7 +218,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBT-bs-0P9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="22" y="858"/>
+            <point key="canvasLocation" x="-255" y="1280"/>
         </scene>
         <!--Entry Image View Controller-->
         <scene sceneID="HKM-Vr-WlR">
@@ -229,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZq-BT-j4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="874" y="858"/>
+            <point key="canvasLocation" x="578" y="1280"/>
         </scene>
         <!--Entry Detail View Controller-->
         <scene sceneID="kWc-c8-0kk">
@@ -245,6 +277,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WbC-a7-n25">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="627"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgLauncher" translatesAutoresizingMaskIntoConstraints="NO" id="Tiz-mx-edL">
+                                                <rect key="frame" x="16" y="16" width="382" height="595"/>
+                                            </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zmx-vF-LwT">
                                                 <rect key="frame" x="16" y="16" width="382" height="595"/>
                                                 <subviews>
@@ -263,7 +298,7 @@
                                                         <rect key="frame" x="0.0" y="51.5" width="382" height="400"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="600" id="6SO-z1-BP1"/>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="6SO-z1-BP1"/>
                                                             <constraint firstAttribute="height" constant="400" placeholder="YES" id="OiT-sq-Q1z"/>
                                                         </constraints>
                                                     </imageView>
@@ -311,6 +346,10 @@
                                         <constraints>
                                             <constraint firstItem="zmx-vF-LwT" firstAttribute="top" secondItem="WbC-a7-n25" secondAttribute="top" constant="16" id="Qi8-MP-Ch6"/>
                                             <constraint firstItem="zmx-vF-LwT" firstAttribute="leading" secondItem="WbC-a7-n25" secondAttribute="leading" constant="16" id="XE9-fP-z7O"/>
+                                            <constraint firstAttribute="bottom" secondItem="Tiz-mx-edL" secondAttribute="bottom" constant="16" id="XpD-qB-Dyu"/>
+                                            <constraint firstItem="Tiz-mx-edL" firstAttribute="leading" secondItem="WbC-a7-n25" secondAttribute="leading" constant="16" id="bSi-IM-LUY"/>
+                                            <constraint firstItem="Tiz-mx-edL" firstAttribute="top" secondItem="WbC-a7-n25" secondAttribute="top" constant="16" id="baq-De-Heu"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tiz-mx-edL" secondAttribute="trailing" constant="16" id="dvB-Wq-wMa"/>
                                             <constraint firstAttribute="bottom" secondItem="zmx-vF-LwT" secondAttribute="bottom" constant="16" id="htN-Hs-Nrp"/>
                                             <constraint firstAttribute="trailing" secondItem="zmx-vF-LwT" secondAttribute="trailing" constant="16" id="pem-RE-lQr"/>
                                         </constraints>
@@ -342,17 +381,23 @@
                         <outlet property="commentsIcon" destination="waH-cy-4Kv" id="ily-Kc-9Wk"/>
                         <outlet property="commentsLabel" destination="0M5-nJ-ev8" id="gFy-dJ-Jox"/>
                         <outlet property="createDateLabel" destination="B0B-IP-H3r" id="VHd-ol-PoR"/>
+                        <outlet property="emptyView" destination="Tiz-mx-edL" id="CBD-bA-h36"/>
                         <outlet property="entryImageView" destination="e2v-I9-KXB" id="GRF-jx-vLf"/>
+                        <outlet property="stackView" destination="zmx-vF-LwT" id="gPd-Sh-SnK"/>
                         <outlet property="titleLabel" destination="Bg8-65-5OF" id="0q1-Bq-eai"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Wq-eJ-ie2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873.91304347826099" y="152.67857142857142"/>
+            <point key="canvasLocation" x="-1378.2608695652175" y="1280.3571428571429"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="4sw-NC-UyV"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="icComments" width="24" height="24"/>
+        <image name="imgLauncher" width="270" height="224"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
@@ -363,6 +408,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

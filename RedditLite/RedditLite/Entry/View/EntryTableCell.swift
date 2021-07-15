@@ -23,6 +23,7 @@ class EntryTableCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var commentsIcon: UIImageView!
+    @IBOutlet weak var statusStackView: UIStackView!
     
     // MARK: - Lifecycles
     
@@ -36,6 +37,8 @@ class EntryTableCell: UITableViewCell {
     func bind(with entryViewModel: EntryDetailViewModel) {
         self.entry = entryViewModel.entry
         self.authorLabel.text = self.entry?.author
+        
+        self.statusStackView.subviews.first?.isHidden = entryViewModel.isReaded
         
         self.createDateLabel.text = entryViewModel.formattedTimeElapsed
 

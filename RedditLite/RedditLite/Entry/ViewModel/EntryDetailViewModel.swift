@@ -46,8 +46,18 @@ class EntryDetailViewModel {
         }
     }
     
+    var isReaded: Bool {
+        get {
+            EntryStorage.isReaded(entry: self.entry)
+        }
+    }
+    
     
     init(entry: Entry) {
         self.entry = entry
+    }
+    
+    func readEntry() {
+        EntryStorage.read(entry: self.entry)
     }
 }

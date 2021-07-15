@@ -22,11 +22,7 @@ class BaseViewController: UIViewController {
         
         if let navigationBar = self.navigationController?.navigationBar {
             navigationBar.shadowImage = nil
-            navigationBar.isTranslucent = false
-            navigationBar.isOpaque = true
-            navigationBar.barTintColor = UIColor.systemBackground
-            navigationBar.tintColor = UIColor.systemPurple
-            navigationBar.barStyle = .black
+            navigationBar.tintColor = UIColor.systemPink
             navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemPink]
         }
         
