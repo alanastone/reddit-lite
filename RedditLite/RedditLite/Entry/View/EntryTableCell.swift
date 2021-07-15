@@ -33,26 +33,17 @@ class EntryTableCell: UITableViewCell {
     
     // MARK: - Bind
     
-    func bind(with entry: Entry) {
-        self.entry = entry
-        self.authorLabel.text = entry.author
+    func bind(with entryViewModel: EntryDetailViewModel) {
+        self.entry = entryViewModel.entry
+        self.authorLabel.text = self.entry?.author
         
-        if let createDateMs = entry.created {
-            let createDate = Date(timeIntervalSince1970: createDateMs)
-            let formatter = RelativeDateTimeFormatter()
-            let relativeDate = formatter.localizedString(for: createDate, relativeTo: Date())
-            formatter.unitsStyle = .full
-            self.createDateLabel.text = relativeDate
-            
-        } else {
-            self.createDateLabel.text = nil
-        }
+        self.createDateLabel.text = entryViewModel.formattedTimeElapsed
 
-        self.titleLabel.text = entry.title
-        self.commentsLabel.text = "\(entry.numComments ?? 0)"
-        self.entryImageView.load(urlString: entry.thumbnail ?? "", placeholder: UIImage(named: "icImagePlaceholder"))
+        self.titleLabel.text = self.entry?.title
+        self.commentsLabel.text = entryViewModel.formattedNumComments
+        self.entryImageView.load(urlString: self.entry?.thumbnail ?? "", placeholder: UIImage(named: "icImagePlaceholder"))
         
-        if let _ = entry.fullImage {
+        if let _ = entryViewModel.fullImageUrl {
             self.entryImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapThumbnail)))
         }
         

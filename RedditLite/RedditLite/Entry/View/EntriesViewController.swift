@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EntriesViewController: BaseViewController, UITableViewDataSource, ExpandImageDelegate {
+class EntriesViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, ExpandImageDelegate {
     
     // MARK: - Outlets
     
@@ -27,6 +27,7 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, ExpandIm
         self.refreshControl.addTarget(self, action: #selector(refreshList(_:)), for: .valueChanged)
         
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         self.tableView.addSubview(self.refreshControl)
         
         self.viewModel.load { [weak self] in
@@ -43,9 +44,26 @@ class EntriesViewController: BaseViewController, UITableViewDataSource, ExpandIm
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: EntryTableCell.identifier) as! EntryTableCell
         let entry = self.viewModel.entries[indexPath.row]
-        cell.bind(with: entry)
+        cell.bind(with: EntryDetailViewModel(entry: entry))
         cell.delegate = self
         return cell
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let entry = self.viewModel.entries[indexPath.row]
+        let detailViewModel = EntryDetailViewModel(entry: entry)
+        self.performSegue(withIdentifier: "EntryDetailsSegue", sender: detailViewModel)
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Prepare for segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let viewModel = sender as? EntryDetailViewModel, let detailViewController = segue.destination as? EntryDetailViewController {
+            detailViewController.viewModel = viewModel
+        }
     }
     
     // MARK: - ExpandImageDelegate

@@ -11,6 +11,42 @@ class EntryDetailViewModel {
     
     var entry: Entry
     
+    var formattedTimeElapsed: String? {
+        get {
+            if let createDateMs = entry.created {
+                let createDate = Date(timeIntervalSince1970: createDateMs)
+                let formatter = RelativeDateTimeFormatter()
+                let relativeDate = formatter.localizedString(for: createDate, relativeTo: Date())
+                formatter.unitsStyle = .full
+                return relativeDate
+                
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    var formattedNumComments: String {
+        get {
+            return "\(self.entry.numComments ?? 0)"
+        }
+    }
+    
+    var fullImageUrl: String? {
+        get {
+            guard let fullImage = self.entry.fullImage else {
+                return nil
+            }
+            
+            if (fullImage.contains(".jpg") || fullImage.contains(".png") || fullImage.contains(".jpeg")) {
+                return fullImage
+            }
+            
+            return nil
+        }
+    }
+    
+    
     init(entry: Entry) {
         self.entry = entry
     }

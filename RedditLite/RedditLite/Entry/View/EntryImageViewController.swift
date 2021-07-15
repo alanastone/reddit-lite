@@ -23,7 +23,7 @@ class EntryImageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.shareButton.isEnabled = false
-        if let urlString = self.viewModel?.entry.fullImage {
+        if let urlString = self.viewModel?.fullImageUrl {
             self.imageView.load(urlString: urlString, placeholder: UIImage(named: "imgPlaceholder"), success: { _ in
                 self.shareButton.isEnabled = true
             })
